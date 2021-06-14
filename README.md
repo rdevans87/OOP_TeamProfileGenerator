@@ -80,16 +80,11 @@ npm i [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input fr
 
 ## Usage
 
-Invoke the application by using the following command:
-
-`node index.js`
-
+Invoke the application by using the following command: `node index.js`
 
 * A sample HTML file generated using the application 
 
 ## Directory Structure
-
-It is recommended that you start with a directory structure that looks like the following example:
 
 ```md
 __tests__/			// jest tests
@@ -103,7 +98,7 @@ src/				// template helper code
 index.js			// runs the application
 ```
 
-The application includes `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `_tests_` directory) ALL pass.
+The application includes `Employee`, `Manager`, `Engineer`, and `Intern` classes. 
 
 `Employee` parent class with the following properties and methods:
 
@@ -137,6 +132,8 @@ The other three classes extend `Employee`.
 
 ## Tests
 Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
+
+The tests for these classes (in the `_tests_` directory) ALL pass.
 
 ## Grading Requirements
 * Deliverables: 15%
