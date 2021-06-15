@@ -19,38 +19,37 @@ let teamArr = []
 
 const userPrompts = [
     {
-
         type: "input",
         name: "managerName",
         message: "What is the team manager's name?"
-
     },
     {
-
         type: "list",
         name: "employeeId",
-        message: "What is the manager's ID number?"
+        message: "What is the manager's ID number?",
         choices: [1, 2, 3, 4, 5, 6, 7, 9]
-    
     },
     {
 
-        type:"input"
-        name:
-        message:
-        
-     }
+        type:"input",
+        name: "officeNumber",
+        message: "What is the Manager's office number?",
+        choices: [1, 2, 3, 4, 5 , 6, 7, 8, 9]  
+    },
+    {
+        type:"input",
+        name: "teamMember",
+        message: "Please select a team member...",
+        choices: ["Engineer", "Employee", "Intern"]        
+    },
+     
+    
+    
+    
     {
 
-        type:"input"
-        name:
-        message:
-            
-    }
-     {
-
         type: "input"
-        name:
+        name: employye
         message:
                 
     }
@@ -94,12 +93,12 @@ function init() {
         .then((responses) => {
             console.log(responses)
             const renderHTML = generateHTML(responses)
-            writeToFile('sample.html', sampleHTML)
+            writeFile('sample.html', sampleHTML)
             console.log("Team Profile Generated")
 
         });
 
 };
 
-init(;)
+init()
 
