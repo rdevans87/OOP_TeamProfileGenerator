@@ -1,10 +1,13 @@
 const Manager = require("./lib/Manager");
-const Enginner = require("./lib/Engineer");
+const Engineer = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 //to create command prompts from command line
 const inquirer = require("inquirer");
-const util = require("util");
+
+const jest = require("jest");
+
+// const util = require("util");
 // path for file to generate
 const path = require("path");
 // to write to file
@@ -17,9 +20,10 @@ const figlet = require('figlet');
 
 // const writeFile = util.promisify(fs.writeFile)
 // const appendFile = util.promisfy(fs.appendFile)
-const samplePath = path.join(sampleDir, "sample.html")
 const sampleDir = path.resolve(_dirname, "sample")
-const render = require("./src/htmlTemp");
+const samplePath = path.join(sampleDir, "sample.html")
+
+const render = require("./src/htmlTemp.js");
 
 let employeeArr = [];
 let teamArr = [];
@@ -34,7 +38,6 @@ function menuPrompt() {
     console.log(``);
     console.log(chalk.green.bold(`======================================================================================================`));
 
-generateHTML();
 
     function createManager() {
         inquirer.prompt([
@@ -76,7 +79,7 @@ generateHTML();
             },
 
         ]).then(answers => {
-            const Manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+            const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
             teamMembers.push(manager);
             teamArr.push(answers.employeeId)
             createTeam();
@@ -233,8 +236,8 @@ generateHTML();
 
 
         ]).then(answers => {
-            const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            teamMembers.push(engineer);
+            const employee = new Employee(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+            teamMembers.push(employee);
             teamArr.push(answers.employeeId);
             createTeam();
         });
@@ -243,12 +246,12 @@ generateHTML();
 
         // Function call to initialize app
         function generateTeam() {
-           if (fs.writeFile(sampleDir)) {
+           if (!fs.writeFile(sampleDir)) {
                fs.mkdirSync(simpleDir)  
             }
             
-            fs.writeFileSync(samplePath), render(employeeArr), "utf-8"
-        
+            fs.writeFileSync(samplePath, render(employeeArr), "utf-8")
+            console.log("Team Profile Generator Completed")
         }
                 // .then((answers) => {
                 //     console.log(answers)
