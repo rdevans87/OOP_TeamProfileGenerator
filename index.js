@@ -7,9 +7,9 @@ const util = require("util");
 const path = require("path");
 const fs = require("fs");
 
-const writetoFile = util.promisify(fs.writeFile)
+const writeFile = util.promisify(fs.writeFile)
 const appendFile = util.promisfy(fs.appendFile)
-const samplePath = path.joinh(sampleDir, "sample.html")
+const samplePath = path.join(sampleDir, "sample.html")
 const sampleDir = path.resolve(_dirname, "sample")
 const renderHTML = require("./src/htmlTemp");
 
@@ -21,17 +21,18 @@ const userPrompts = [
     {
 
         type: "input"
-        name:
-        message:
+        name: "managerName"
+        message: "What is the team manager's name?"
 
-    }
+    },
     {
 
-        type: "input"
-        name:
-        message:
+        type: "list"
+        name: "employeeId"
+        message: "What is the manager's ID number?"
+        choices: [1, 2, 3, 4, 5]
     
-    }
+    },
     {
 
         type:"input"
@@ -67,20 +68,6 @@ const userPrompts = [
         message:
                         
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ]
 
 async function mainMenu() {
