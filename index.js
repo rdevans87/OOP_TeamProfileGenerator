@@ -51,7 +51,13 @@ function menuPrompt() {
             {
                 type: "input",
                 name: "employeeEmail",
-                message: "What is the team manager's email?"
+                message: "What is the team manager's email?",
+                validate: function validateEmail(email) {
+                    if (email !== "") {
+                        return true;
+                    }
+                    return "Please enter a valid University..";
+                }
 
             },
             {
@@ -70,9 +76,9 @@ function menuPrompt() {
                 type: "list",
                 name: "employeeInfo",
                 message: "What is the Manager's office number?",
-                choices: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                choices: [1, 2, 3, 4, 5],
                 validate: function validateOfficeNumber(officeNumber) {
-                    if (officeNumber === null) {
+                    if (officeNumber !== "") {
                         return true;
                     }
                     return "Please select a correct office number..."
@@ -93,7 +99,7 @@ function menuPrompt() {
                 type: "list",
                 name: "teamArr",
                 message: "Please select a team member to add...",
-                choices: ["Engineer", "Employee", "Intern"]
+                choices: ["Engineer", "Employee", "Intern", "Exit"]
             }
 
 
@@ -216,7 +222,13 @@ function menuPrompt() {
             {
                 type: "input",
                 name: "employeeName",
-                message: "What is your new employee's name?"
+                message: "What is your new employee's name?",
+                validate: function validateEmail(name) {
+                    if (name !== "") {
+                        return true;
+                    }
+                    return "You must enter an employee name..";
+                }
             },
 
             {
@@ -229,40 +241,39 @@ function menuPrompt() {
             {
                 type: "input",
                 name: "employeeEmail",
-                message: "What is your new employee's email?"
-
+                message: "What is your new employee's email?",
+                validate: function validateEmail(email) {
+                    if (email !== "") {
+                        return true;
+                    }
+                    return "Please enter a valid Email..";
+                }
             },
 
             {
                 type: "list",
                 name: "employeeinfo",
                 message: "What is your new employee's Role?",
-                choices: ["Engineer", "Intern", "Other"],
-                validate: function validateUserChoice(userChoice) {
-                    if (userChoice === "Engineer") {
-                        return "Please enter your engineer's GitHub UsersName.";
-                    }
-                    if (userChoice === "Intern") {
-                        return "Please enter your Intern's University..";
-                    }
-                    if (userChoice === "Other") {
-                        return "You cannot add a new role at this time. Please select an option.";
-
-                    }
-
-                }
-
+                choices: ["Engineer", "Intern"]
             }
-
-
-        ]).then(answers => {
+            ]).then(userChoice => {
+            switch (userChoice.memberChoice) {
+              case "Engineer":
+                addEngineer();
+                break;
+              case "Intern":
+                addIntern();
+                break;
+                 }     
+            })
+            .then(answers => {
             const employee = new Employee(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
             employeeArr.push(employee);
             teamArr.push(answers.employeeId);
             createTeam();
         });
 
-    }
+    
 
     // Function call to initialize app
     function generateTeam() {
@@ -282,7 +293,7 @@ function menuPrompt() {
     // });
 
 
-
+    }
 
     createManager();
 }
