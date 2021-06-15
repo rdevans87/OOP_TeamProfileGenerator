@@ -11,7 +11,7 @@ const writetoFile = util.promisify(fs.writeFile)
 const appendFile = util.promisfy(fs.appendFile)
 const samplePath = path.joinh(sampleDir, "sample.html")
 const sampleDir = path.resolve(_dirname, "sample")
-const html = require("./src/htmlTemp");
+const renderHTML = require("./src/htmlTemp");
 
 let employeeArr = []
 let teamArr = []
@@ -20,51 +20,49 @@ let teamArr = []
 const userPrompts = [
     {
 
-        type:
+        type: "input"
         name:
         message:
 
     }
-
     {
 
-        type:
+        type: "input"
         name:
         message:
     
     }
-
     {
 
-        type:
+        type:"input"
         name:
         message:
         
      }
     {
 
-        type:
+        type:"input"
         name:
         message:
             
     }
      {
 
-        type:
+        type: "input"
         name:
         message:
                 
     }
     {
 
-        type:
+        type: "input"
         name:
         message:
                     
     }
     {
 
-        type:
+        type:"input"
         name:
         message:
                         
@@ -108,7 +106,7 @@ function init() {
     inquirer.prompt(questions)
         .then((responses) => {
             console.log(responses)
-            const readMe = generateMarkdown(responses)
+            const renderHTML = generateHTML(responses)
             writeToFile('sample.html', sampleHTML)
             console.log("Team Profile Generated")
 
