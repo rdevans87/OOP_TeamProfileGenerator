@@ -211,10 +211,23 @@ function addIntern() {
         },   
         {
             type:"input",
-            name: "employeeRole",
-            message: "What is your new employee's role?"
-            
+            name: "employeeEmail",
+            message: "What is your new employee's email?"
+
         },
+
+        {       
+            type: "input",
+            name: "employeeinfo",
+            message: "What is your new employee's Role?",
+            validate: function validateRole (role) {
+                if (role === "intern") {
+                return "What Unversity does your intern attend?"
+                }
+              return "Please enter.."; 
+            }   
+        }
+   
         {       
             type: "input",
             name: "employeeinfo",

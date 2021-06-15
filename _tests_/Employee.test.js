@@ -13,3 +13,9 @@ test("Set GitHub Account from constructor", () => {
     expect(emp.github).toBe(testValue);
 
 });
+
+
+test("get school from constructor", () => {
+    const testValue = "Kent State University";
+    const emp = new Employee ("Kelli", 4, "kelli@fmail.com", testValue);
+});
