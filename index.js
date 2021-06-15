@@ -8,7 +8,7 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 //to create command prompts from command line
 const inquirer = require("inquirer");
-const util = require("util");
+
 // path for file to generate
 const path = require("path");
 // to write to file
@@ -18,7 +18,7 @@ const fs = require("fs");
 const SAMPLE_DIR = path.resolve(__dirname, "sample")
 const samplePath = path.join(SAMPLE_DIR, "sample.html")
 
-const html = require("./src/htmlTemp.js");
+const render = require("./src/htmlTemp.js");
 
 let employeeArr = [];
 let teamArr = [];
@@ -46,7 +46,7 @@ function promptMenu() {
                     if (name !== "") {
                         return true;
                     }
-                    return "Please enter a valid University..";
+                    return "You must enter a manager's name...";
                 }
             },
             {
@@ -57,13 +57,13 @@ function promptMenu() {
                     if (email !== "") {
                         return true;
                     }
-                    return "Please enter a valid University..";
+                    return "Please enter a valid email...";
                 }
 
             },
             {
                 type: "list",
-                name: "employeeId",
+                name: "managerId",
                 message: "What is the manager's ID number?",
                 choices: [1, 2, 3],
                 validate: function validateId(id) {
@@ -75,7 +75,7 @@ function promptMenu() {
             },
             {
                 type: "list",
-                name: "employeeInfo",
+                name: "managerInfo",
                 message: "What is the Manager's office number?",
                 choices: [1, 2, 3, 4, 5],
                 validate: function validateOfficeNumber(officeNumber) {
@@ -87,9 +87,9 @@ function promptMenu() {
             },
 
         ]).then(answers => {
-            const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.manager.officeNumber);
             employeeArr.push(manager);
-            teamArr.push(answers.employeeId)
+            teamArr.push(answers.managerId)
             createTeam();
         });
     }
@@ -114,10 +114,7 @@ function promptMenu() {
                 case "Intern":
                     addIntern();
                     break;
-                // case "Employee":
-                //     addEmployee();
-                //     break;
-                default:
+                    default:
                     generateTeam();
 
             }
@@ -224,7 +221,7 @@ function promptMenu() {
         if (!fs.existsSync(SAMPLE_DIR)) {
           fs.mkdirSync(SAMPLE_DIR)
         }
-        fs.writeFileSync(samplePath, render(teamArray), "utf-8");
+        fs.writeFileSync(samplePath, render(teamArr), "utf-8");
        
       }
     
