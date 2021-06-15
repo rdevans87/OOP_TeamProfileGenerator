@@ -47,14 +47,27 @@ function createManager() {
         type: "list",
         name: "employeeId",
         message: "What is the manager's ID number?",
-        choices: [1, 2, 3, 4, 5, 6, 7, 9]
+        choices: [1, 2, 3, 4, 5, 6, 7, 9],
+        validate: function validateId (id) {
+            if (id !== "") {
+            return true;
+            }
+          return "Please select a correct ID number.." ;
+        }   
     },
+    
     {
 
         type:"input",
         name: "officeNumber",
         message: "What is the Manager's office number?",
-        choices: [1, 2, 3, 4, 5 , 6, 7, 8, 9]  
+        choices: [1, 2, 3, 4, 5 , 6, 7, 8, 9] ,
+        validate: function validateOfficeNumber(officeNumber) {
+            if (officeNumber !== "") {
+            return true;
+            }
+          return "Please select a correct office number.."  
+        }   
     },
     {
         type:"input",
