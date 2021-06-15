@@ -186,7 +186,7 @@ function addIntern() {
     }
 
  ]).then(answers => {
-        const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeGitHub);
+        const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
         teamMembers.push(intern);
         teamArr.push(answers.employeeId);
         createTeam();
@@ -226,7 +226,7 @@ function addIntern() {
                 } else if (role === "engineer") {
                 return "Please input a valid GitHub Username..";
                 } else if (role === "")
-                 return "You must enter Engineer or Intern";
+                 return "You can only add Engineer or Intern at this time";
             }   
         }
    
@@ -241,23 +241,17 @@ function addIntern() {
               return "Please input a valid GitHub Username.."; 
             }   
         }
-   
-
     
-    
-
-
-
-.then(answers => {
-    const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
+    ]).then(answers => {
+    const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
     teamMembers.push(engineer);
     teamArr.push(answers.employeeId);
     createTeam();
+    });
 
 
 
-
-function writeToFile(fileName, data) {
+function writeFile(fileName, data) {
     return fs.writeFile(fileName, data, (err) => {
         console.log(err)
     })
@@ -279,4 +273,4 @@ function init() {
 
 }
 
-menuPrompt();
+ menuPrompt();
