@@ -41,7 +41,7 @@ const generateTeam = function (team) {
 </div>
 
         `;
-    }
+}
 
 
     const generateIntern = intern => {
@@ -49,28 +49,25 @@ const generateTeam = function (team) {
 
     <div class="card">
     <div class="header">
-        <h2 class="employeeName"> ${manager.getName()}</h2>
-        <h3 class="employeeRole"><i class="fas fa-building"></i>${manager.getRole()}</h3>
+        <h2 class="employeeName"> ${intern.getName()}</h2>
+        <h3 class="employeeRole"><i class="fas fa-building"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item" id="employeeId">${manager.getId()}</li>
-            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}>${manager.getEmail()}</a>
+            <li class="list-group-item" id="employeeId">${intern.getId()}</li>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${intern.getEmail()}>${intern.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo">${employee.getOfficeNumber()}</li>
+            <li class="list-group-item" id="employeeInfo">${intern.getSchool()}</li>
         </ul>
     </div>
 </div>
 
         `;
-    }
+}
 
 
+const html = []
 
-
-    let employeeIcon;
-
-    let employeeInfo;
 
     if (teamArr.role === "Manager") {
         employeeIcon = `"fas fa-building"`
