@@ -40,12 +40,12 @@ function createManager() {
 
     {
         type: "input",
-        name: "managerName",
+        name: "employeeName",
         message: "What is the team manager's name?"
     },
     {
         type: "input",
-        name: "managerEmail",
+        name: "employeeEmail",
         message: "What is the team manager's email?"
 
     },
@@ -61,9 +61,7 @@ function createManager() {
           return "Please select a correct ID number.." ;
         }   
     },
-    
     {
-
         type:"input",
         name: "officeNumber",
         message: "What is the Manager's office number?",
@@ -76,21 +74,20 @@ function createManager() {
         }   
     },
     
-    {
-        type:"input",
-        name: "teamMember",
-        message: "Please select a team member to...",
-        choices: ["Engineer", "Employee", "Intern"]        
-    },
-    
-    ],
+    ]).then(answers => {
+        const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.officeNumber)
+        teamArr.push(answers.employeeId)
+        createTeam();
+    });
+}
 
-)};
-    .then(answers => {
-        const manager = new 
-
-    }
-    
+    function createTeam(){
+{
+    type:"input",
+    name: "teamMembers",
+    message: "Please select a team member to...",
+    choices: ["Engineer", "Employee", "Intern"]        
+},
     
     
     {
