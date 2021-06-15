@@ -99,7 +99,7 @@ function menuPrompt() {
                 type: "list",
                 name: "teamArr",
                 message: "Please select a team member to add...",
-                choices: ["Engineer", "Employee", "Intern", "Exit"]
+                choices: ["Engineer", "Intern", "None"]
             }
 
 
@@ -111,9 +111,9 @@ function menuPrompt() {
                 case "Intern":
                     addIntern();
                     break;
-                case "Employee":
-                    addEmployee();
-                    break;
+                // case "Employee":
+                //     addEmployee();
+                //     break;
                 default:
                     generateTeam();
 
@@ -217,61 +217,68 @@ function menuPrompt() {
     }
 
 
-    function addEmployee() {
-        inquirer.prompt([
-            {
-                type: "input",
-                name: "employeeName",
-                message: "What is your new employee's name?",
-                validate: function validateEmail(name) {
-                    if (name !== "") {
-                        return true;
-                    }
-                    return "You must enter an employee name..";
-                }
-            },
+    // function addEmployee() {
+    //     inquirer.prompt([
+    //         {
+    //             type: "input",
+    //             name: "employeeName",
+    //             message: "What is your new employee's name?",
+    //             validate: function validateEmail(name) {
+    //                 if (name !== "") {
+    //                     return true;
+    //                 }
+    //                 return "You must enter an employee name..";
+    //             }
+    //         },
 
-            {
-                type: "list",
-                name: "employeeId",
-                message: "Please select an employee ID number.",
-                choices: [8, 9]
+    //         {
+    //             type: "list",
+    //             name: "employeeId",
+    //             message: "Please select an employee ID number.",
+    //             choices: [8, 9]
 
-            },
-            {
-                type: "input",
-                name: "employeeEmail",
-                message: "What is your new employee's email?",
-                validate: function validateEmail(email) {
-                    if (email !== "") {
-                        return true;
-                    }
-                    return "Please enter a valid Email..";
-                }
-            },
+    //         },
+    //         {
+    //             type: "input",
+    //             name: "employeeEmail",
+    //             message: "What is your new employee's email?",
+    //             validate: function validateEmail(email) {
+    //                 if (email !== "") {
+    //                     return true;
+    //                 }
+    //                 return "Please enter a valid Email..";
+    //             }
+    //         },
 
-            {
-                type: "list",
-                name: "employeeinfo",
-                message: "What is your new employee's Role?",
-                choices: ["Engineer", "Intern"]
-            }
-            ]).then(userChoice => {
-            switch (userChoice.memberChoice) {
-              case "Engineer":
-                addEngineer();
-                break;
-              case "Intern":
-                addIntern();
-                break;
-                 }     
-            })
-            .then(answers => {
-            const employee = new Employee(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            employeeArr.push(employee);
-            teamArr.push(answers.employeeId);
-            createTeam();
-        });
+    //         {
+    //             type: "list",
+    //             name: "employeeinfo",
+    //             message: "What is your new employee's Role?",
+    //             choices: ["Engineer", "Intern", "Other", "Exit"]
+    //         }
+
+        
+    //     ]).then(userChoice => {
+    //         switch (userChoice.teamArr) {
+    //             case "Engineer":
+    //             addEngineer();
+    //             case "Intern":
+    //             addIntern();
+    //             case "Other":
+    //             return "You cannot add a new employee role at this time. Please select another option.."
+    //             case "Exit":
+    //             break;
+    //             default:
+    //             generateTeam();
+    //         }
+    //  })   
+        
+                // .then(answers => {
+        //     const employee = new Employee(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+        //     employeeArr.push(employee);
+        //     teamArr.push(answers.employeeId);
+        //     createTeam();
+        // });
 
     
 
@@ -293,7 +300,7 @@ function menuPrompt() {
     // });
 
 
-    }
+     
 
     createManager();
 }
