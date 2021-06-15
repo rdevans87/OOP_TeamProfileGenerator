@@ -1,4 +1,4 @@
-const generateTeam = function (team) {
+const generateTeam = team => {
 
     const generateManager = manager => {
         return `
@@ -18,10 +18,7 @@ const generateTeam = function (team) {
                 </div>
 
                    `;
-
-
     };
-
 
     const generateEngineer = engineer => {
         return `
@@ -41,10 +38,11 @@ const generateTeam = function (team) {
 </div>
 
         `;
-}
+
+};
 
 
-    const generateIntern = intern => {
+const generateIntern = intern => {
         return `
 
     <div class="card">
@@ -63,14 +61,11 @@ const generateTeam = function (team) {
 </div>
 
         `;
-}
+
+};
 
 
-const html = []
-
-
-
-    return
+const html = [];
 
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
@@ -87,6 +82,10 @@ const html = []
         .map(intern => generateIntern(intern))
         .join("")
     );
+
+
+ return html.join("");
+
 
 }
 
@@ -138,4 +137,4 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         `;
 
 
-}
+};

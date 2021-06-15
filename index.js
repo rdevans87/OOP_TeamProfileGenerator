@@ -96,7 +96,7 @@ function promptMenu() {
                 type: "list",
                 name: "employeeSelect",
                 message: "Please select a team member to add...",
-                choices: ["Engineer", "Intern", "Exit"]
+                choices: ["Engineer", "Intern", "Generate"]
             }
 
 
