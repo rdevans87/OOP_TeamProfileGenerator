@@ -132,9 +132,42 @@ The other three classes extend `Employee`.
 * `getRole()`&mdash;overridden to return `'Intern'`
 
 ## Tests
-Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
 
-The tests for these classes (in the `_tests_` directory) ALL pass.
+* Using the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
+
+* The following tests for `Employee`, `Manager`, `Engineer`, and `Intern` classes (in the `_tests_` directory) ALL pass. 
+
+
+```
+Manager Test:
+    test("Set Office Number from constructor", () => {
+    const testValue = 0;
+    const emp = new Manager("Johnny", 0, "johnny@fmail.com", testValue);
+    expect(emp.officeNumber).toBe(testValue);
+    });
+
+Engineer Test:
+    test("Set Office Number from constructor", () => {
+    const testValue = 0;
+    const emp = new Manager("Johnny", 0, "johnny@fmail.com", testValue);
+    expect(emp.officeNumber).toBe(testValue);
+    });
+
+  Employee Test:
+  test("new Employee created", () => {
+    const emp = new Employee();
+    expect(typeof(emp)).toBe("object");
+
+});
+
+  Intern Test:
+test("get school from constructor", () => {
+    const testValue = "The Ohio State University";
+    const emp = new Intern("Ali", 4, "ali@fmail.com", testValue);
+});
+
+```
+
 
 ## Grading Requirements
 * Deliverables: 15%
