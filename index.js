@@ -15,12 +15,10 @@ const path = require("path");
 const fs = require("fs");
 // terminal string styling
 
-const html = require("./src/htmlTemp");
-
-
 const SAMPLE_DIR = path.resolve(__dirname, "sample")
 const samplePath = path.join(SAMPLE_DIR, "sample.html")
 
+const html = require("./src/htmlTemp.js");
 
 let employeeArr = [];
 let teamArr = [];
@@ -43,7 +41,13 @@ function promptMenu() {
             {
                 type: "input",
                 name: "employeeName",
-                message: "What is the team manager's name?"
+                message: "What is the team manager's name?",
+                validate: function validateName(name) {
+                    if (name !== "") {
+                        return true;
+                    }
+                    return "Please enter a valid University..";
+                }
             },
             {
                 type: "input",
@@ -91,6 +95,8 @@ function promptMenu() {
     }
    
     function createTeam() {
+
+
         inquirer.prompt([
             {
                 type: "list",
@@ -123,19 +129,19 @@ function promptMenu() {
         inquirer.prompt([
             {
                 type: "input",
-                name: "employeeName",
+                name: "engineerName",
                 message: "What is your engineer's name?"
             },
             {
                 type: "list",
-                name: "employeeId",
+                name: "engineerId",
                 message: "Please select an employee ID number.",
                 choices: [4, 5]
 
             },
             {
                 type: "input",
-                name: "employeeEmail",
+                name: "engineerEmail",
                 message: "What is your engineer's email?",
                 validate: function validateEmail(email) {
                     if (email !== "") {
@@ -161,7 +167,7 @@ function promptMenu() {
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             teamArr.push(engineer);
-            employeeArr.push(answers.employeeId);
+            employeeArr.push(answers.engineerId);
             createTeam();
         });
     }
@@ -208,7 +214,7 @@ function promptMenu() {
         ]).then(answers => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             teamArr.push(intern);
-            employeeArr.push(answers.employeeId);
+            employeeArr.push(answers.internId);
             createTeam();
         })
     }
