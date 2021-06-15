@@ -75,7 +75,7 @@ function createManager() {
     },
     
     ]).then(answers => {
-        const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo)
+        const Manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo)
         teamArr.push(answers.employeeId)
         createTeam();
     });
@@ -125,7 +125,6 @@ function createEngineer() {
     
     },   
     {
-    
         type:"input",
         name: "employeeEmail",
         message: "What is your engineer's email?"
@@ -139,14 +138,18 @@ function createEngineer() {
             if (GitHub === "") {
             return true;
             }
-          return "Please select a correct GitHub Username.."; 
+          return "Please input a valid GitHub Username.."; 
         }   
     }
    
 
-    ])
-    
-    
+    ]).then(answers => {
+        const engineer = new Engineer(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
+        teamMembers.push(engineer);
+        teamArray.push(answers.employeeId);
+        createTeam();
+    });
+}
     
     
     

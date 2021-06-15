@@ -12,17 +12,17 @@ Link to walkthrough video: [TPG demo Video](/)
 
 
 # Table of Contents
-* [User Story](#userstory)
-* [Mock Up](#mockup)
+* [User Story](#user-story)
+* [Mock Up](#mock-up)
 * [Demo](#demo)
-* [Acceptance Criteria](#acceptancecriteria)
+* [Acceptance Criteria](#acceptance-criteria)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Demo](#demo)
-* [Directory Structure](#directorystructure)
+* [Directory Structure](#directory-structure)
 * [Tests](#tests)
-* [Grading Requirements](#gradingrequirements)
-* [Submitted for Review](#submittedforreview)
+* [Grading Requirements](#grading-requirements)
+* [Submitted for Review](#submitted-for-review)
 
 
 ## User Story
