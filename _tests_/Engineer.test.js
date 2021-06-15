@@ -6,3 +6,8 @@ test("Set GitHub Account from constructor", () => {
     expect(emp.github).toBe(testValue);
 
 });
+
+test("Set Email from constructor", () => {
+    const testValue = "kelli@fmail.com";
+    const emp = new Engineer ("Kelli", 4, "kelli@fmail.com", testValue);
+});

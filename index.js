@@ -29,16 +29,16 @@ let teamArr = [];
 
 
 
-    console.log(chalk.yellow.bold('================================================================================================='));
-    console.log(``);
-    console.log(chalk.blue.bold(figlet.textSync('          TEAM PROFILE')));
-    console.log(chalk.blue.bold(figlet.textSync('                 GENERATOR')));
-    console.log(``);
-    console.log(`                              ` + chalk.green.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
-    console.log(``);
-    console.log(chalk.yellow.bold(`================================================================================================`));
+console.log(chalk.yellow.bold('================================================================================================='));
+console.log(``);
+console.log(chalk.blue.bold(figlet.textSync('          TEAM PROFILE')));
+console.log(chalk.blue.bold(figlet.textSync('                 GENERATOR')));
+console.log(``);
+console.log(`                              ` + chalk.green.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
+console.log(``);
+console.log(chalk.yellow.bold(`================================================================================================`));
 
-    function menuPrompt() {
+function menuPrompt() {
 
     function createManager() {
         inquirer.prompt([
@@ -133,7 +133,13 @@ let teamArr = [];
             {
                 type: "input",
                 name: "employeeEmail",
-                message: "What is your engineer's email?"
+                message: "What is your engineer's email?",
+                validate: function validateEmail(email) {
+                    if (email !== "") {
+                        return true;
+                    }
+                    return "Please enter a valid University..";
+                }
 
             },
             {
@@ -175,7 +181,13 @@ let teamArr = [];
             {
                 type: "input",
                 name: "employeeEmail",
-                message: "What is your intern's email?"
+                message: "What is your intern's email?",
+                validate: function validateEmail(email) {
+                    if (email !== "") {
+                        return true;
+                    }
+                    return "Please enter a valid Email..";
+                }
 
             },
             {
@@ -226,14 +238,20 @@ let teamArr = [];
                 name: "employeeinfo",
                 message: "What is your new employee's Role?",
                 choices: ["Engineer", "Intern", "Other"],
-                validate: function validateRole(role) {
-                    if (role !== "Intern") {
-                        return "What Unversity does your intern attend?"
-                    } else if (role !== "Engineer") {
-                        return "Please input a valid GitHub Username..";
-                    } else if (role === "Other")
-                        return "You cannot add a new Role at this time. Please choose an option from the list.";
+                validate: function validateUserChoice(userChoice) {
+                    if (userChoice === "Engineer") {
+                        return "Please enter your engineer's GitHub UsersName.";
+                    }
+                    if (userChoice === "Intern") {
+                        return "Please enter your Intern's University..";
+                    }
+                    if (userChoice === "Other") {
+                        return "You cannot add a new role at this time. Please select an option.";
+
+                    }
+
                 }
+
             }
 
 
@@ -244,29 +262,29 @@ let teamArr = [];
             createTeam();
         });
 
-    } 
+    }
 
-        // Function call to initialize app
-        function generateTeam() {
-           if (!fs.writeFile(SAMPLE_DIR)) {
-               fs.mkdirSync(SAMPLE_DIR)  
-            }
-            
-            fs.writeFileSync(samplePath, render(employeeArr), "utf-8")
-            console.log("Team Profile Generator Completed")
+    // Function call to initialize app
+    function generateTeam() {
+        if (!fs.writeFile(SAMPLE_DIR)) {
+            fs.mkdirSync(SAMPLE_DIR)
         }
-                // .then((answers) => {
-                //     console.log(answers)
-                //     const renderHTML = generateHTML(answers)
-                //     writeFile('sample.html', sampleHTML)
-                //     console.log("Team Profile Generated")
 
-                // });
+        fs.writeFileSync(samplePath, render(employeeArr), "utf-8")
+        console.log("Team Profile Generator Completed")
+    }
+    // .then((answers) => {
+    //     console.log(answers)
+    //     const renderHTML = generateHTML(answers)
+    //     writeFile('sample.html', sampleHTML)
+    //     console.log("Team Profile Generated")
 
-    
+    // });
 
 
-      createManager();
+
+
+    createManager();
 }
-    
+
 menuPrompt();

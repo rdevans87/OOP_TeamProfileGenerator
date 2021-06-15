@@ -1,4 +1,6 @@
 const Employee = require("../lib/Employee");
+const Intern = require("../lib/Intern");
+const Engineer = require("../lib/Engineer");
 
 test("new Employee created", () => {
     const emp = new Employee();
@@ -9,13 +11,13 @@ test("new Employee created", () => {
 
 test("Set GitHub Account from constructor", () => {
     const testValue = "GitHub"
-    const emp = new Employee("Jimmy", 9, "https://github.com/fgithubaccount", testValue);
+    const emp = new Engineer("Jimmy", 9, "https://github.com/fgithubaccount", testValue);
     expect(emp.github).toBe(testValue);
 
 });
 
 
-test("get school from constructor", () => {
-    const testValue = "Kent State University";
-    const emp = new Employee ("Kelli", 4, "kelli@fmail.com", testValue);
+test("Set Email from constructor", () => {
+    const testValue = "kelli@fmail.com";
+    const emp = new Intern("Kelli", 4, "kelli@fmail.com", testValue);
 });

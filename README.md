@@ -168,10 +168,10 @@ Manager Test:
   });
 
 Engineer Test:
-  test("Set Office Number from constructor", () => {
-  const testValue = 0;
-  const emp = new Manager("Johnny", 0, "johnny@fmail.com", testValue);
-  expect(emp.officeNumber).toBe(testValue);
+    test("Set GitHub Account from constructor", () => {
+    const testValue = "GitHub"
+    const emp = new Engineer("Bobby", 4, "https://github.com/fgithubaccount", testValue);
+    expect(emp.github).toBe(testValue);
   });
 
 Employee Test:
