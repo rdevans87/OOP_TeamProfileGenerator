@@ -2,23 +2,29 @@ const Manager = require("./lib/Manager");
 const Enginner = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
+//to create command prompts from command line
 const inquirer = require("inquirer");
 const util = require("util");
+// path for file to generate
 const path = require("path");
+// to write to file
 const fs = require("fs");
+// terminal string styling
 const chalk = require('chalk');
 // implement FIGfont spec in Javascript
 const figlet = require('figlet');
+
+
 const writeFile = util.promisify(fs.writeFile)
 const appendFile = util.promisfy(fs.appendFile)
 const samplePath = path.join(sampleDir, "sample.html")
 const sampleDir = path.resolve(_dirname, "sample")
 const renderHTML = require("./src/htmlTemp");
 
-let employeeArr = []
-let teamArr = []
+let employeeArr = [];
+let teamArr = [];
 
-function mainMenu {
+function mainMenu() {
 
 console.log(chalk.green.bold('======================================================================================================='));
 console.log(``);
@@ -29,7 +35,8 @@ console.log(``);
 console.log(chalk.green.bold(`======================================================================================================`));
 
 
-const startMangerPrompts = [
+function createManager() { 
+    inquirer.prompt([
 
     {
         type: "input",
@@ -55,7 +62,14 @@ const startMangerPrompts = [
         message: "Please select a team member...",
         choices: ["Engineer", "Employee", "Intern"]        
     },
-     
+    
+    ],
+
+)};
+    .then(answers => {
+        const manager = new 
+
+    }
     
     
     
