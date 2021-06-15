@@ -110,7 +110,7 @@ function createManager() {
 });
    
 }
-function createEngineer() {
+function addEngineer() {
     inquirer.prompt([
       {
         type: "input",
@@ -152,7 +152,81 @@ function createEngineer() {
 }
     
     
+function addIntern() {
+    inquirer.prompt([
+      {
+        type: "input",
+        name: "employeeName",
+        message: "What is your intern's name?"
+    },
+    {
+        type: "list",
+        name: "employeeId",
+        message: "Please select an employee ID number..." ,
+        choices: [6, 7]
     
+    },   
+    {
+        type:"input",
+        name: "employeeEmail",
+        message: "What is your intern's email?"
+      
+    },
+    {       
+        type: "input",
+        name: "employeeinfo",
+        message: "What University does your intern attend?",
+        validate: function validateSchool (school) {
+            if (school === "") {
+            return true;
+            }
+          return "Please input a valid University.."; 
+        }   
+    }
+
+
+    .then(answers => {
+        const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
+        teamMembers.push(engineer);
+        teamArray.push(answers.employeeId);
+        createTeam();
+
+
+
+        
+    function addEmployee() {
+        inquirer.prompt([
+          {
+            type: "input",
+            name: "employeeName",
+            message: "What is your engineer's name?"
+        },
+        {
+            type: "list",
+            name: "employeeId",
+            message: "Please select an employee ID number." ,
+            choices: [4, 5]
+        
+        },   
+        {
+            type:"input",
+            name: "employeeEmail",
+            message: "What is your engineer's email?"
+          
+        },
+        {       
+            type: "input",
+            name: "employeeinfo",
+            message: "What is your engineer's GitHub username?",
+            validate: function validateGitHub (GitHub) {
+                if (GitHub === "") {
+                return true;
+                }
+              return "Please input a valid GitHub Username.."; 
+            }   
+        }
+   
+
     
     
     {
@@ -188,11 +262,7 @@ async function mainMenu() {
 
 }
 
-.then(answers => {
-    const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
-    teamMembers.push(engineer);
-    teamArray.push(answers.employeeId);
-    createTeam();
+
 
 .then(answers => {
     const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
