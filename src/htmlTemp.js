@@ -65,18 +65,18 @@ const generateCard = function (teamArr) {
 
     if (teamArr.role === "Manager") {
      employeeIcon = `"fas fa-building"`
-     employeeInfo = `Office Number: ${teamArr.OfficeNumber}`
+     employeeInfo = `Office Number: ${employeeArr.OfficeNumber}`
     } else if (teamArr.role === "Engineer") {
        employeeIcon = `"fas fa-laptop-code"`
-       employeeInfo = `GitHub: <a href="https://github.com/${teamArr.GitHub}"
+       employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
        target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
     } else if (teamArr.role === "Employee") {
         employeeIcon = `"fas fa-user-tie"`
-        employeeInfo = `GitHub: <a href="https://github.com/${teamArr.GitHub}"
+        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
         target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`        
     } else if (teamArr.role === "Intern") {
         employeeIcon = `"fas fa-user-graduate"`
-        employeeInfo = `School: ${teamArr.School}`
+        employeeInfo = `School: ${employeeArr.School}`
     }
 
     return

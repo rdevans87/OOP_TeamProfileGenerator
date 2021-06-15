@@ -81,7 +81,7 @@ let teamArr = [];
 
         ]).then(answers => {
             const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            teamMembers.push(manager);
+            employeeArr.push(manager);
             teamArr.push(answers.employeeId)
             createTeam();
         });
@@ -90,15 +90,15 @@ let teamArr = [];
     function createTeam() {
         inquirer.prompt([
             {
-                type: "input",
-                name: "teamMember",
+                type: "list",
+                name: "teamArr",
                 message: "Please select a team member to add...",
                 choices: ["Engineer", "Employee", "Intern"]
             }
 
 
         ]).then(userChoice => {
-            switch (userChoice.teamMember) {
+            switch (userChoice.teamArr) {
                 case "Engineer":
                     addEngineer();
                     break;
@@ -141,7 +141,7 @@ let teamArr = [];
                 name: "employeeinfo",
                 message: "What is your engineer's GitHub username?",
                 validate: function validateGitHub(GitHub) {
-                    if (GitHub === "") {
+                    if (GitHub !== "") {
                         return true;
                     }
                     return "Please input a valid GitHub Username..";
@@ -150,9 +150,9 @@ let teamArr = [];
 
 
         ]).then(answers => {
-            const engineer = new Engineer(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
-            teamMembers.push(engineer);
-            teamArray.push(answers.employeeId);
+            const engineer = new Engineer(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+            employeeArr.push(engineer);
+            employeeArr.push(answers.employeeId);
             createTeam();
         });
     }
@@ -183,7 +183,7 @@ let teamArr = [];
                 name: "employeeinfo",
                 message: "What University does your intern attend?",
                 validate: function validateSchool(school) {
-                    if (school === "") {
+                    if (school !== "") {
                         return true;
                     }
                     return "Please enter a valid University..";
@@ -192,8 +192,8 @@ let teamArr = [];
 
         ]).then(answers => {
             const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            teamMembers.push(intern);
-            teamArr.push(answers.employeeId);
+            employeeArr.push(intern);
+            employeeArr.push(answers.employeeId);
             createTeam();
         })
     }
@@ -222,23 +222,24 @@ let teamArr = [];
             },
 
             {
-                type: "input",
+                type: "list",
                 name: "employeeinfo",
                 message: "What is your new employee's Role?",
+                choices: ["Engineer", "Intern", "Other"],
                 validate: function validateRole(role) {
-                    if (role === "intern") {
+                    if (role !== "Intern") {
                         return "What Unversity does your intern attend?"
-                    } else if (role === "engineer") {
+                    } else if (role !== "Engineer") {
                         return "Please input a valid GitHub Username..";
-                    } else if (role === "")
-                        return "You can only add Engineer or Intern at this time";
+                    } else if (role === "Other")
+                        return "You cannot add a new Role at this time. Please choose an option from the list.";
                 }
             }
 
 
         ]).then(answers => {
             const employee = new Employee(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            teamMembers.push(employee);
+            employeeArr.push(employee);
             teamArr.push(answers.employeeId);
             createTeam();
         });
