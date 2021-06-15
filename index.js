@@ -223,8 +223,10 @@ function addIntern() {
             validate: function validateRole (role) {
                 if (role === "intern") {
                 return "What Unversity does your intern attend?"
-                }
-              return "Please enter.."; 
+                } else if (role === "engineer") {
+                return "Please input a valid GitHub Username..";
+                } else if (role === "")
+                 return "You must enter Engineer or Intern";
             }   
         }
    
@@ -243,38 +245,6 @@ function addIntern() {
 
     
     
-    {
-
-        type: "input"
-        name: employye
-        message:
-                
-    }
-    {
-
-        type: "input"
-        name:
-        message:
-                    
-    }
-    {
-
-        type:"input"
-        name:
-        message:
-                        
-    }
-]
-
-async function mainMenu() {
-    console.log
-
-    try {
-
-
-    }
-
-}
 
 
 
