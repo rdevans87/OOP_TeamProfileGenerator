@@ -30,8 +30,8 @@ const generateHTML = function (employee) {
             <div class="col-12 d-flex justify-content-center">
                 <div class="card">
                     <div class="header">
-                        <h2 class="name"> ${employee.getName()}</h2>
-                        <h3 class="role"><i class=${employee.icon()}></i>${employee.getRole()}</h3>
+                        <h2 class="employeeName"> ${employee.getName()}</h2>
+                        <h3 class="employeeRole"><i class=${employee.icon()}></i>${employee.getRole()}</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">

@@ -20,17 +20,17 @@ let teamArr = []
 const userPrompts = [
     {
 
-        type: "input"
-        name: "managerName"
+        type: "input",
+        name: "managerName",
         message: "What is the team manager's name?"
 
     },
     {
 
-        type: "list"
-        name: "employeeId"
+        type: "list",
+        name: "employeeId",
         message: "What is the manager's ID number?"
-        choices: [1, 2, 3, 4, 5]
+        choices: [1, 2, 3, 4, 5, 6, 7, 9]
     
     },
     {
