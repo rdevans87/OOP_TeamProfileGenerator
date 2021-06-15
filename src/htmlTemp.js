@@ -1,4 +1,4 @@
-const generateHTML = function (team) {
+const generateHTML = function (employee) {
 
 
     return `<!DOCTYPE html>
@@ -30,15 +30,15 @@ const generateHTML = function (team) {
             <div class="col-12 d-flex justify-content-center">
                 <div class="card">
                     <div class="header">
-                        <h2 class="name">Johnny</h2>
-                        <h3 class="title"><i class="fas fa-building"></i> Manager</h3>
+                        <h2 class="name"> ${employee.getName()}</h2>
+                        <h3 class="role"><i class="fas fa-building"></i> ${employee.getRole()}</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">ID: 1</li>
-                            <li class="list-group-item">Email: <a href="mailto:johnny@fakemail.com">johnny@fmail.com</a>
+                            <li class="list-group-item">${employee.getId()}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
                             </li>
-                            <li class="list-group-item">Office number: 1</li>
+                            <li class="list-group-item">${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
                         </ul>
                     </div>
                 </div>`
