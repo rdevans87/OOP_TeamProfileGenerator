@@ -44,6 +44,12 @@ function createManager() {
         message: "What is the team manager's name?"
     },
     {
+        type: "input",
+        name: "managerEmail",
+        message: "What is the team manager's email?"
+
+    },
+    {
         type: "list",
         name: "employeeId",
         message: "What is the manager's ID number?",
@@ -69,10 +75,11 @@ function createManager() {
           return "Please select a correct office number.."  
         }   
     },
+    
     {
         type:"input",
         name: "teamMember",
-        message: "Please select a team member...",
+        message: "Please select a team member to...",
         choices: ["Engineer", "Employee", "Intern"]        
     },
     
