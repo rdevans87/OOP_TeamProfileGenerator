@@ -67,7 +67,7 @@ let teamArr = [];
                 }
             },
             {
-                type: "input",
+                type: "list",
                 name: "employeeInfo",
                 message: "What is the Manager's office number?",
                 choices: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -75,7 +75,7 @@ let teamArr = [];
                     if (officeNumber === null) {
                         return true;
                     }
-                    return "Please select a correct office number.."
+                    return "Please select a correct office number..."
                 }
             },
 
