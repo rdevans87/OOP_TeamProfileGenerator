@@ -74,16 +74,39 @@ THEN I exit the application, and the HTML is generated
 
 ## Installation
 
-Fork or Clone repository and install required dependencies:
+Open `terminal` window after fork. `npm init -y` to create a package.son file to store your dependenices.
 
-npm i [Jest](https://www.npmjs.com/package/jest) for running the 
-npm i [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. 
+npm i to install your NPM package manager and required dependencies.
+
+npm i inquirer to interact with the user via the command-line.
+
+npm i figlet to implement FIGfont spec in Javascript.
+
+npm i chalk for terminal string styling of Logo.
+
+`npm init`
+
+npm i [Jest](https://www.npmjs.com/package/jest) for running UAT tests.
+
+command prompts. 
 
 ## Usage
 
-Invoke the application by using the following command: `node index.js`
+* Invoke the application by using the following command: `node index.js`
 
-* A sample HTML file generated using the application 
+* With the application invoked, you'll be prompted to answer a series of questions from the command line to generate a `Team Profile` for your project.
+
+* Each question will pertain to a specific `Team Member's Profile` you're creating. Answer each prompt for `Manager`, `Engineer`, `Intern`,  `Employee`. 
+
+Hit Enter after answering each question to continue to the next prompt. When all the prompts are completed, you will receive an alert `Team Profile Generator Complete`.
+
+* A `sample.html`file will automatically generate inside the explorer window of your project's repository within the `sample ` folder.
+
+* Your `sample.html` should contain a similar structure as the [#mock-up] shown above with a header displaying `my team`  and four individual cards for each employee. 
+
+* Each employee card will have a `name`, `role`, & `email`. Engineer cards will include a `github username`. Intern card will display the `school` which they are currently attending.  
+
+* Please feel free to make changes to the styling or employee roles as needed. 
 
 ## Directory Structure
 
@@ -178,6 +201,13 @@ Intern Test:
 * A walkthrough video that demonstrates the functionality of the application and passing tests.
 * A sample HTML file generated using your application.
 * The URL of the GitHub repository, with a unique name and a readme describing the project.
+
+## Questions
+ 
+ Email: <a href="mailto:rdevans87@gmail.com">rdevans87@gmail.com</a>
+
+ Github: <a href="https://github.com/rdevans87">rdevans87</a>
+
 
 ## License
 

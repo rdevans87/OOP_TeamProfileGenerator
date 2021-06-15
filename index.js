@@ -15,11 +15,11 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 
 
-const writeFile = util.promisify(fs.writeFile)
-const appendFile = util.promisfy(fs.appendFile)
+// const writeFile = util.promisify(fs.writeFile)
+// const appendFile = util.promisfy(fs.appendFile)
 const samplePath = path.join(sampleDir, "sample.html")
 const sampleDir = path.resolve(_dirname, "sample")
-const renderHTML = require("./src/htmlTemp");
+const render = require("./src/htmlTemp");
 
 let employeeArr = [];
 let teamArr = [];
@@ -243,20 +243,22 @@ generateHTML();
 
         // Function call to initialize app
         function generateTeam() {
-            fs.writeFile(sampleDir)) {
+           if (fs.writeFile(sampleDir)) {
                fs.mkdirSync(simpleDir)  
             }
+            
+            fs.writeFileSync(samplePath), render(employeeErr), "utf-8"
         
+        }
+                // .then((answers) => {
+                //     console.log(answers)
+                //     const renderHTML = generateHTML(answers)
+                //     writeFile('sample.html', sampleHTML)
+                //     console.log("Team Profile Generated")
 
-                .then((answers) => {
-                    console.log(answers)
-                    const renderHTML = generateHTML(answers)
-                    writeFile('sample.html', sampleHTML)
-                    console.log("Team Profile Generated")
+                // });
 
-                });
-
-    ;
+    
 
 
       createManager();
