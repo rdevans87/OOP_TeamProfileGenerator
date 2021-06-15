@@ -29,14 +29,14 @@ let teamArr = [];
 
 
 
-    console.log(chalk.green.bold('================================================================================================='));
+    console.log(chalk.yellow.bold('================================================================================================='));
     console.log(``);
     console.log(chalk.blue.bold(figlet.textSync('          TEAM PROFILE')));
-    console.log(chalk.blue.bold(figlet.textSync('                   GENERATOR')));
+    console.log(chalk.blue.bold(figlet.textSync('                 GENERATOR')));
     console.log(``);
-    console.log(`                             ` + chalk.yellow.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
+    console.log(`                              ` + chalk.green.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
     console.log(``);
-    console.log(chalk.green.bold(`================================================================================================`));
+    console.log(chalk.yellow.bold(`================================================================================================`));
 
     function menuPrompt() {
 
