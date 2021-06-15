@@ -46,7 +46,7 @@ const generateHTML = function (employee) {
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
                 integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -64,39 +64,29 @@ const generateCard = function (teamArr) {
     let employeeInfo;
 
     if (teamArr.role === "Manager") {
-     employeeIcon = "fas fa-building"
+     employeeIcon = `"fas fa-building"`
      employeeInfo = `Office Number: ${teamArr.OfficeNumber}`
     } else if (teamArr.role === "Engineer") {
-
-
-    }
-
-     else if (teamArr.role === "Employee") {
-
-        
-    }
-
+       employeeIcon = `"fas fa-laptop-code"`
+       employeeInfo = `GitHub: <a href="https://github.com/${teamArr.GitHub}"
+       target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
+    } else if (teamArr.role === "Employee") {
+        employeeIcon = `"fas fa-user-tie"`
+        employeeInfo = `GitHub: <a href="https://github.com/${teamArr.GitHub}"
+        target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`        
     } else if (teamArr.role === "Intern") {
-
-        
+        employeeIcon = `"fas fa-user-graduate"`
+        employeeInfo = `School: ${teamArr.School}`
     }
 
-
-
-
-}
-
-
-    // <i class="fas fa-building"></i>
-    // <i class="fas fa-laptop-code"></i>
-    // <i class="fas fa-user-tie"></i>
-    // <i class="fas fa-user-graduate"></i>
-
+    return`
 
 
 
 
 }
+
+
 
 exports.generateHTML = generateHTML;
 exports.generateCard = generateCard;
