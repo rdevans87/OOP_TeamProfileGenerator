@@ -53,7 +53,7 @@ function createManager() {
         type: "list",
         name: "employeeId",
         message: "What is the manager's ID number?",
-        choices: [1, 2, 3, 4, 5, 6, 7, 9],
+        choices: [1, 2, 3],
         validate: function validateId (id) {
             if (id !== "") {
             return true;
@@ -63,11 +63,11 @@ function createManager() {
     },
     {
         type:"input",
-        name: "officeNumber",
+        name: "employeeInfo",
         message: "What is the Manager's office number?",
-        choices: [1, 2, 3, 4, 5 , 6, 7, 8, 9] ,
+        choices: [1, 2, 3, 4, 5, 6, 7, 8, 9] ,
         validate: function validateOfficeNumber(officeNumber) {
-            if (officeNumber !== "") {
+            if (officeNumber === null) {
             return true;
             }
           return "Please select a correct office number.."  
@@ -75,7 +75,7 @@ function createManager() {
     },
     
     ]).then(answers => {
-        const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.officeNumber)
+        const manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo)
         teamArr.push(answers.employeeId)
         createTeam();
     });
@@ -99,8 +99,11 @@ function createManager() {
     case "Intern":
         addIntern();
         break;
-        default:
-        addEmployee();
+     case "Employee":
+       addEmployee();
+       break;
+    default:
+        generateTeam();
 
 } 
 
@@ -110,6 +113,36 @@ function createManager() {
 function createEngineer() {
     inquirer.prompt([
       {
+        type: "input",
+        name: "employeeName",
+        message: "What is your engineer's name?"
+    },
+    {
+        type: "list",
+        name: "employeeId",
+        message: "Please select an employee ID number." ,
+        choices: [4, 5]
+    
+    },   
+    {
+    
+        type:"input",
+        name: "employeeEmail",
+        message: "What is your engineer's email?"
+      
+    }
+           
+        type: "input",
+        name: "employeeinfo",
+        message: "What is your engineer's GitHub username?",
+        validate: function validateGitHubUserName(officeNumber) {
+            if (officeNumber === null) {
+            return true;
+            }
+          return "Please select a correct office number.."  
+        }   
+    }
+    {
         type: "input",
         name: "employeeName",
         message: "What is your engineer's name?",
