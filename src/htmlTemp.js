@@ -17,7 +17,7 @@ const generateTeam = function (team) {
                     </div>
                 </div>
 
-                        `;
+                   `;
 
 
     };
@@ -28,7 +28,7 @@ const generateTeam = function (team) {
     <div class="card">
     <div class="header">
         <h2 class="employeeName"> ${engineer.getName()}</h2>
-        <h3 class="employeeRole"><i class="fas fa-building"></i>${engineer.getRole()}</h3>
+        <h3 class="employeeRole"><i class="fas fa-laptop-code"><</i>${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
@@ -50,7 +50,7 @@ const generateTeam = function (team) {
     <div class="card">
     <div class="header">
         <h2 class="employeeName"> ${intern.getName()}</h2>
-        <h3 class="employeeRole"><i class="fas fa-building"></i>${intern.getRole()}</h3>
+        <h3 class="employeeRole"><i class="fas fa-user-graduate"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
@@ -90,11 +90,11 @@ const html = []
 
 }
 
-module.exportsd = team => {
+module.exports = team => {
 
     return `
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
     
     <head>
         <meta charset="UTF-8" />

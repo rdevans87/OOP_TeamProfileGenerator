@@ -141,16 +141,16 @@ function promptMenu() {
                     if (email !== "") {
                         return true;
                     }
-                    return "Please enter a valid University..";
+                    return "Please enter a valid email..";
                 }
 
             },
             {
                 type: "input",
-                name: "employeeinfo",
-                message: "What is your engineer's GitHub username?",
-                validate: function validateGitHub(GitHub) {
-                    if (GitHub !== "") {
+                name: "engineerGithub",
+                message: "What is your engineer's Github username?",
+                validate: function validateGitHub(Github) {
+                    if (Github !== "") {
                         return true;
                     }
                     return "Please input a valid GitHub Username..";
@@ -159,8 +159,8 @@ function promptMenu() {
 
 
         ]).then(answers => {
-            const engineer = new Engineer(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            employeeArr.push(engineer);
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            teamArr.push(engineer);
             employeeArr.push(answers.employeeId);
             createTeam();
         });
@@ -171,19 +171,19 @@ function promptMenu() {
         inquirer.prompt([
             {
                 type: "input",
-                name: "employeeName",
+                name: "internName",
                 message: "What is your intern's name?"
             },
             {
                 type: "list",
-                name: "employeeId",
+                name: "internId",
                 message: "Please select an employee ID number...",
                 choices: [6, 7]
 
             },
             {
                 type: "input",
-                name: "employeeEmail",
+                name: "internEmail",
                 message: "What is your intern's email?",
                 validate: function validateEmail(email) {
                     if (email !== "") {
@@ -195,7 +195,7 @@ function promptMenu() {
             },
             {
                 type: "input",
-                name: "employeeinfo",
+                name: "internSchool",
                 message: "What University does your intern attend?",
                 validate: function validateSchool(school) {
                     if (school !== "") {
@@ -206,14 +206,14 @@ function promptMenu() {
             }
 
         ]).then(answers => {
-            const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
-            employeeArr.push(intern);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            teamArr.push(intern);
             employeeArr.push(answers.employeeId);
             createTeam();
         })
     }
 
-    function buildTeam() {
+    function generateTeam() {
       
         if (!fs.existsSync(SAMPLE_DIR)) {
           fs.mkdirSync(SAMPLE_DIR)
