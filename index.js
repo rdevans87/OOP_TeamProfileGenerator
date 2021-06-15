@@ -241,18 +241,13 @@ generateHTML();
 
     } 
 
-
-    function writeFile(Name, data) {
-        return fs.writeFile(fileName, data, (err) => {
-            console.log(err)
-        })
-
-    };
-
-
         // Function call to initialize app
         function generateTeam() {
-            inquirer.prompt()
+            fs.writeFile(sampleDir)) {
+               fs.mkdirSync(simpleDir)  
+            }
+        
+
                 .then((answers) => {
                     console.log(answers)
                     const renderHTML = generateHTML(answers)
@@ -261,7 +256,7 @@ generateHTML();
 
                 });
 
-        };
+    ;
 
 
       createManager();
