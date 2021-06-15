@@ -130,34 +130,21 @@ function createEngineer() {
         name: "employeeEmail",
         message: "What is your engineer's email?"
       
-    }
-           
+    },
+    {       
         type: "input",
         name: "employeeinfo",
         message: "What is your engineer's GitHub username?",
-        validate: function validateGitHubUserName(officeNumber) {
-            if (officeNumber === null) {
+        validate: function validateGitHub (GitHub) {
+            if (GitHub === "") {
             return true;
             }
-          return "Please select a correct office number.."  
+          return "Please select a correct GitHub Username.."; 
         }   
     }
-    {
-        type: "input",
-        name: "employeeName",
-        message: "What is your engineer's name?",
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    ],
+   
+
+    ])
     
     
     
