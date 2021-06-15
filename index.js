@@ -6,7 +6,9 @@ const inquirer = require("inquirer");
 const util = require("util");
 const path = require("path");
 const fs = require("fs");
-
+const chalk = require('chalk');
+// implement FIGfont spec in Javascript
+const figlet = require('figlet');
 const writeFile = util.promisify(fs.writeFile)
 const appendFile = util.promisfy(fs.appendFile)
 const samplePath = path.join(sampleDir, "sample.html")
@@ -16,8 +18,19 @@ const renderHTML = require("./src/htmlTemp");
 let employeeArr = []
 let teamArr = []
 
+function mainMenu {
 
-const userPrompts = [
+console.log(chalk.green.bold('======================================================================================================='));
+console.log(``);
+console.log(chalk.blue.bold(figlet.textSync('TEAM PROFILE GENERATOR')));
+console.log(``);
+console.log(`                               ` + chalk.purple.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
+console.log(``);
+console.log(chalk.green.bold(`======================================================================================================`));
+
+
+const startMangerPrompts = [
+
     {
         type: "input",
         name: "managerName",
@@ -100,5 +113,6 @@ function init() {
 
 };
 
-init()
+};
 
+mainMenu();
