@@ -38,7 +38,7 @@ const generateHTML = function (employee) {
                             <li class="list-group-item" id="employeeId">${employee.getId()}</li>
                             <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
                             </li>
-                            <li class="list-group-item" id="employeeInfo>${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
+                            <li class="list-group-item" id="employeeInfo">${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
                         </ul>
                     </div>
                 </div>
@@ -63,14 +63,28 @@ const generateCard = function (teamArr) {
 
     let employeeInfo;
 
-    if (teamArr.role === "manager") {
+    if (teamArr.role === "Manager") {
      employeeIcon = "fas fa-building"
-     employeeInfo =  ${employee.getOfficeNumber()}
-
-
+     employeeInfo = `Office Number: ${teamArr.OfficeNumber}`
+    } else if (teamArr.role === "Engineer") {
 
 
     }
+
+     else if (teamArr.role === "Employee") {
+
+        
+    }
+
+    } else if (teamArr.role === "Intern") {
+
+        
+    }
+
+
+
+
+}
 
 
     // <i class="fas fa-building"></i>
