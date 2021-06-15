@@ -46,13 +46,13 @@ function promptMenu() {
                     if (name !== "") {
                         return true;
                     }
-                    return "You must enter a manager's name...";
+                    return "You must enter a Manager's name...";
                 }
             },
             {
                 type: "input",
                 name: "employeeEmail",
-                message: "What is the team manager's email?",
+                message: "What is the team Manager's email?",
                 validate: function validateEmail(email) {
                     if (email !== "") {
                         return true;
@@ -64,7 +64,7 @@ function promptMenu() {
             {
                 type: "list",
                 name: "managerId",
-                message: "What is the manager's ID number?",
+                message: "What is the Manager's ID number?",
                 choices: [1, 2, 3],
                 validate: function validateId(id) {
                     if (id !== "") {
@@ -75,19 +75,13 @@ function promptMenu() {
             },
             {
                 type: "list",
-                name: "managerInfo",
+                name: "officeNumber",
                 message: "What is the Manager's office number?",
-                choices: [1, 2, 3, 4, 5],
-                validate: function validateOfficeNumber(officeNumber) {
-                    if (officeNumber !== "") {
-                        return true;
-                    }
-                    return "Please select a correct office number..."
-                }
+                choices: [1, 2, 3, 4, 5]
             },
 
         ]).then(answers => {
-            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.manager.officeNumber);
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
             employeeArr.push(manager);
             teamArr.push(answers.managerId)
             createTeam();
@@ -100,14 +94,14 @@ function promptMenu() {
         inquirer.prompt([
             {
                 type: "list",
-                name: "teamArr",
+                name: "employeeSelect",
                 message: "Please select a team member to add...",
                 choices: ["Engineer", "Intern", "Exit"]
             }
 
 
         ]).then(userChoice => {
-            switch (userChoice.memberChoice) {
+            switch (userChoice.employeeSelect) {
                 case "Engineer":
                     addEngineer();
                     break;
