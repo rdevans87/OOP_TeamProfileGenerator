@@ -2,42 +2,43 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
+
+const chalk = require('chalk');
+// implement FIGfont spec in Javascript
+const figlet = require('figlet');
 //to create command prompts from command line
 const inquirer = require("inquirer");
-
-const jest = require("jest");
-
 // const util = require("util");
 // path for file to generate
 const path = require("path");
 // to write to file
 const fs = require("fs");
 // terminal string styling
-const chalk = require('chalk');
-// implement FIGfont spec in Javascript
-const figlet = require('figlet');
+
 
 
 // const writeFile = util.promisify(fs.writeFile)
 // const appendFile = util.promisfy(fs.appendFile)
-const sampleDir = path.resolve(_dirname, "sample")
-const samplePath = path.join(sampleDir, "sample.html")
+const SAMPLE_DIR = path.resolve(__dirname, "sample")
+const samplePath = path.join(SAMPLE_DIR, "sample.html")
 
 const render = require("./src/htmlTemp.js");
 
 let employeeArr = [];
 let teamArr = [];
 
-function menuPrompt() {
 
-    console.log(chalk.green.bold('======================================================================================================='));
-    console.log(``);
-    console.log(chalk.blue.bold(figlet.textSync('TEAM PROFILE GENERATOR')));
-    console.log(``);
-    console.log(`                               ` + chalk.purple.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
-    console.log(``);
-    console.log(chalk.green.bold(`======================================================================================================`));
 
+    console.log(chalk.green.bold('================================================================================================='));
+    console.log(``);
+    console.log(chalk.blue.bold(figlet.textSync('          TEAM PROFILE')));
+    console.log(chalk.blue.bold(figlet.textSync('                   GENERATOR')));
+    console.log(``);
+    console.log(`                             ` + chalk.yellow.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
+    console.log(``);
+    console.log(chalk.green.bold(`================================================================================================`));
+
+    function menuPrompt() {
 
     function createManager() {
         inquirer.prompt([
@@ -246,8 +247,8 @@ function menuPrompt() {
 
         // Function call to initialize app
         function generateTeam() {
-           if (!fs.writeFile(sampleDir)) {
-               fs.mkdirSync(simpleDir)  
+           if (!fs.writeFile(SAMPLE_DIR)) {
+               fs.mkdirSync(SAMPLE_DIR)  
             }
             
             fs.writeFileSync(samplePath, render(employeeArr), "utf-8")
