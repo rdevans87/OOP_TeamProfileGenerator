@@ -69,26 +69,24 @@ const generateTeam = function (team) {
 const html = []
 
 
-    if (teamArr.role === "Manager") {
-        employeeIcon = `"fas fa-building"`
-        employeeInfo = `Office Number: ${employeeArr.OfficeNumber}`
-    } else if (teamArr.role === "Engineer") {
-        employeeIcon = `"fas fa-laptop-code"`
-        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
-       target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
-    } else if (teamArr.role === "Employee") {
-        employeeIcon = `"fas fa-user-tie"`
-        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
-        target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
-    } else if (teamArr.role === "Intern") {
-        employeeIcon = `"fas fa-user-graduate"`
-        employeeInfo = `School: ${employeeArr.School}`
-    }
 
     return
 
+    html.push(team
+        .filter(employee => employee.getRole() === "Manager")
+        .map(manager => generateManager(manager))
+    );
+    html.push(team
+        .filter(employee => employee.getRole() === "Engineer")
+        .map(engineer => generateEngineer(engineer))
+        .join("")
+    );
 
-
+    html.push(team
+        .filter(employee => employee.getRole() === "Intern")
+        .map(intern => generateIntern(intern))
+        .join("")
+    );
 
 }
 
