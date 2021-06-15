@@ -75,7 +75,8 @@ function createManager() {
     },
     
     ]).then(answers => {
-        const Manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo)
+        const Manager = new Manager(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeInfo);
+        teamMembers.push(manager);
         teamArr.push(answers.employeeId)
         createTeam();
     });
@@ -180,20 +181,19 @@ function addIntern() {
             if (school === "") {
             return true;
             }
-          return "Please input a valid University.."; 
+          return "Please enter a valid University.."; 
         }   
     }
 
-
-    .then(answers => {
-        const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
-        teamMembers.push(engineer);
+ ]).then(answers => {
+        const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeGitHub);
+        teamMembers.push(intern);
         teamArray.push(answers.employeeId);
         createTeam();
+    })
+}
 
-
-
-        
+ 
     function addEmployee() {
         inquirer.prompt([
           {
