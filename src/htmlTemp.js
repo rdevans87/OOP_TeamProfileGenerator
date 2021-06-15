@@ -1,7 +1,104 @@
-const generateHTML = function (employee) {
+const generateTeam = function (team) {
+
+    const generateManager = manager => {
+        return `
+                <div class="card">
+                    <div class="header">
+                        <h2 class="employeeName"> ${manager.getName()}</h2>
+                        <h3 class="employeeRole"><i class="fas fa-building"></i>${manager.getRole()}</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item" id="employeeId">${manager.getId()}</li>
+                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}>${manager.getEmail()}</a>
+                            </li>
+                            <li class="list-group-item" id="employeeInfo">${manager.getOfficeNumber()}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                        `;
 
 
-    return `<!DOCTYPE html>
+    };
+
+
+    const generateEngineer = engineer => {
+        return `
+    <div class="card">
+    <div class="header">
+        <h2 class="employeeName"> ${engineer.getName()}</h2>
+        <h3 class="employeeRole"><i class="fas fa-building"></i>${engineer.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item" id="employeeId">${engineer.getId()}</li>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}>${engineer.getEmail()}</a>
+            </li>
+            <li class="list-group-item" id="employeeInfo">${engineer.getGithub()}</li>
+        </ul>
+    </div>
+</div>
+
+        `;
+    }
+
+
+    const generateIntern = intern => {
+        return `
+
+    <div class="card">
+    <div class="header">
+        <h2 class="employeeName"> ${manager.getName()}</h2>
+        <h3 class="employeeRole"><i class="fas fa-building"></i>${manager.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item" id="employeeId">${manager.getId()}</li>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}>${manager.getEmail()}</a>
+            </li>
+            <li class="list-group-item" id="employeeInfo">${employee.getOfficeNumber()}</li>
+        </ul>
+    </div>
+</div>
+
+        `;
+    }
+
+
+
+
+    let employeeIcon;
+
+    let employeeInfo;
+
+    if (teamArr.role === "Manager") {
+        employeeIcon = `"fas fa-building"`
+        employeeInfo = `Office Number: ${employeeArr.OfficeNumber}`
+    } else if (teamArr.role === "Engineer") {
+        employeeIcon = `"fas fa-laptop-code"`
+        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
+       target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
+    } else if (teamArr.role === "Employee") {
+        employeeIcon = `"fas fa-user-tie"`
+        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
+        target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
+    } else if (teamArr.role === "Intern") {
+        employeeIcon = `"fas fa-user-graduate"`
+        employeeInfo = `School: ${employeeArr.School}`
+    }
+
+    return
+
+
+
+
+}
+
+module.exportsd = team => {
+
+    return `
+<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -27,66 +124,23 @@ const generateHTML = function (employee) {
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <div class="card">
-                    <div class="header">
-                        <h2 class="employeeName"> ${employee.getName()}</h2>
-                        <h3 class="employeeRole"><i class=${employee.icon()}></i>${employee.getRole()}</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item" id="employeeId">${employee.getId()}</li>
-                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
-                            </li>
-                            <li class="list-group-item" id="employeeInfo">${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-12 d-flex justify-content-center"></div>    
+            ${generateTeam(team)}
+            </div>
+        </div>
+    </div>
 
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-                integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
+</html>
 
-</html>`
-
-}
-
-
-const generateCard = function (teamArr) {
-
-    let employeeIcon;
-
-    let employeeInfo;
-
-    if (teamArr.role === "Manager") {
-     employeeIcon = `"fas fa-building"`
-     employeeInfo = `Office Number: ${employeeArr.OfficeNumber}`
-    } else if (teamArr.role === "Engineer") {
-       employeeIcon = `"fas fa-laptop-code"`
-       employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
-       target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`
-    } else if (teamArr.role === "Employee") {
-        employeeIcon = `"fas fa-user-tie"`
-        employeeInfo = `GitHub: <a href="https://github.com/${employeeArr.GitHub}"
-        target="_blank" rel="noopener noreferrer">${teamArr.GitHub}</a>`        
-    } else if (teamArr.role === "Intern") {
-        employeeIcon = `"fas fa-user-graduate"`
-        employeeInfo = `School: ${employeeArr.School}`
-    }
-
-    return
-
-
+        `;
 
 
 }
-
-
-
-exports.generateHTML = generateHTML;
-exports.generateCard = generateCard;
