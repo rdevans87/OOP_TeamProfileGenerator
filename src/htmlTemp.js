@@ -79,7 +79,7 @@ const generateCard = function (teamArr) {
         employeeInfo = `School: ${teamArr.School}`
     }
 
-    return`
+    return
 
 
 
