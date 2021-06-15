@@ -31,7 +31,8 @@ const generateHTML = function (employee) {
                 <div class="card">
                     <div class="header">
                         <h2 class="name"> ${employee.getName()}</h2>
-                        <h3 class="role"><i class="fas fa-building"></i> ${employee.getRole()}</h3>
+                        <h3 class="role"><i class="${employee.icon()}"></i>${employee.getRole()}</h3>
+                        <h3 class="role"> </h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
@@ -42,6 +43,18 @@ const generateHTML = function (employee) {
                         </ul>
                     </div>
                 </div>`
+
+}
+
+
+const generateCard = function (teamArr) {
+
+    <i class="fas fa-building"></i>
+    <i class="fas fa-laptop-code"></i>
+
+
+
+
 
 }
 
