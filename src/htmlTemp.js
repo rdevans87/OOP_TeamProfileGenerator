@@ -31,26 +31,52 @@ const generateHTML = function (employee) {
                 <div class="card">
                     <div class="header">
                         <h2 class="name"> ${employee.getName()}</h2>
-                        <h3 class="role"><i class="${employee.icon()}"></i>${employee.getRole()}</h3>
-                        <h3 class="role"> </h3>
+                        <h3 class="role"><i class=${employee.icon()}></i>${employee.getRole()}</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">${employee.getId()}</li>
-                            <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
+                            <li class="list-group-item" id="employeeId">${employee.getId()}</li>
+                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
                             </li>
-                            <li class="list-group-item">${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
+                            <li class="list-group-item" id="employeeInfo>${employee.getSchool()} ${employee.getGitHub()} ${employee.getOfficeNumber()}</li>
                         </ul>
                     </div>
-                </div>`
+                </div>
+
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+                integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>`
 
 }
 
 
 const generateCard = function (teamArr) {
 
-    <i class="fas fa-building"></i>
-    <i class="fas fa-laptop-code"></i>
+    let employeeIcon;
+
+    let employeeInfo;
+
+    if (teamArr.role === "manager") {
+     employeeIcon = "fas fa-building"
+     employeeInfo =  ${employee.getOfficeNumber()}
+
+
+
+
+    }
+
+
+    // <i class="fas fa-building"></i>
+    // <i class="fas fa-laptop-code"></i>
+    // <i class="fas fa-user-tie"></i>
+    // <i class="fas fa-user-graduate"></i>
 
 
 
@@ -59,4 +85,4 @@ const generateCard = function (teamArr) {
 }
 
 exports.generateHTML = generateHTML;
-exports.generateCard = generateCard; 
+exports.generateCard = generateCard;
