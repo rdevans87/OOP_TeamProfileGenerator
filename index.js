@@ -24,7 +24,7 @@ const renderHTML = require("./src/htmlTemp");
 let employeeArr = [];
 let teamArr = [];
 
-function mainMenu() {
+function menuPrompt() {
 
 console.log(chalk.green.bold('======================================================================================================='));
 console.log(``);
@@ -85,13 +85,53 @@ function createManager() {
         inquirer.prompt([
 {
     type:"input",
-    name: "teamMembers",
+    name: "teamMember",
     message: "Please select a team member to add...",
     choices: ["Engineer", "Employee", "Intern"]        
 }
 
     
-]).then(userChoice => {   
+]).then(userChoice => {  
+ switch (userChoice.teamMember) {
+    case "Engineer":
+        addEngineer();
+        break;
+    case "Intern":
+        addIntern();
+        break;
+        default:
+        addEmployee();
+
+} 
+
+});
+   
+}
+function createEngineer() {
+    inquirer.prompt([
+      {
+        type: "input",
+        name: "employeeName",
+        message: "What is your engineer's name?",
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ],
+    
+    
+    
+    
+    
+    
+    
     {
 
         type: "input"
@@ -158,8 +198,8 @@ function init() {
 
         });
 
-};
+    };
 
-};
+}
 
-mainMenu();
+menuPrompt();
