@@ -247,7 +247,7 @@ generateHTML();
                fs.mkdirSync(simpleDir)  
             }
             
-            fs.writeFileSync(samplePath), render(employeeErr), "utf-8"
+            fs.writeFileSync(samplePath), render(employeeArr), "utf-8"
         
         }
                 // .then((answers) => {

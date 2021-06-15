@@ -76,17 +76,17 @@ THEN I exit the application, and the HTML is generated
 
 ## Installation
 
-Open `terminal` window after fork. `npm init -y` to create a package.son file to store your dependenices.
+* Open `terminal` window after fork. `npm init -y` to create a package.son file to store your dependenices.
 
-npm i to install your NPM package manager and required dependencies.
+* npm i to install your NPM package manager and required dependencies.
 
-npm i `inquirer` to interact with the user via the command-line.
+* npm i `inquirer` to interact with the user via the command-line.
 
-npm i `figlet` to implement FIGfont spec in Javascript.
+* npm i `figlet` to implement FIGfont spec in Javascript.
 
-npm i `chalk` for terminal string styling of Logo.
+* npm i `chalk` for terminal string styling of Logo.
 
-npm i [Jest](https://www.npmjs.com/package/jest) for running user tests for command prompts. 
+* npm i [Jest](https://www.npmjs.com/package/jest) for running user tests for command prompts. 
 
 ## Usage
 
