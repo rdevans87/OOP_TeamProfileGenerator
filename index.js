@@ -82,14 +82,16 @@ function createManager() {
 }
 
     function createTeam(){
+        inquirer.prompt([
 {
     type:"input",
     name: "teamMembers",
-    message: "Please select a team member to...",
+    message: "Please select a team member to add...",
     choices: ["Engineer", "Employee", "Intern"]        
-},
+}
+
     
-    
+]).then(userChoice => {   
     {
 
         type: "input"
@@ -122,6 +124,20 @@ async function mainMenu() {
     }
 
 }
+
+.then(answers => {
+    const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
+    teamMembers.push(engineer);
+    teamArray.push(answers.employeeId);
+    createTeam();
+
+.then(answers => {
+    const engineer = new Engineer(answers.employeeName, answers.employeeRole, answers.employeeId, answers.employeeEmail, answers.employeeGithub);
+    teamMembers.push(engineer);
+    teamArr.push(answers.employeeId);
+    createTeam();
+
+
 
 
 function writeToFile(fileName, data) {
