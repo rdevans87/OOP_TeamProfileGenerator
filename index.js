@@ -188,7 +188,7 @@ function addIntern() {
  ]).then(answers => {
         const intern = new Intern(answers.employeeName, answers.employeeId, answers.employeeEmail, answers.employeeGitHub);
         teamMembers.push(intern);
-        teamArray.push(answers.employeeId);
+        teamArr.push(answers.employeeId);
         createTeam();
     })
 }
@@ -199,20 +199,21 @@ function addIntern() {
           {
             type: "input",
             name: "employeeName",
-            message: "What is your engineer's name?"
-        },
+            message: "What is your new employee's name?"
+         },
+    
         {
             type: "list",
             name: "employeeId",
             message: "Please select an employee ID number." ,
-            choices: [4, 5]
+            choices: [8, 9]
         
         },   
         {
             type:"input",
-            name: "employeeEmail",
-            message: "What is your engineer's email?"
-          
+            name: "employeeRole",
+            message: "What is your new employee's role?"
+            
         },
         {       
             type: "input",
