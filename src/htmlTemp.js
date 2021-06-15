@@ -15,8 +15,33 @@ const generateHTML = function (team) {
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="style.css" />
-    </head>`
+    </head>
     
+    <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 jumbotron mb-6" id="header">
+                <h1><i class="fas fa-users"></i> My Team</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="name">Johnny</h2>
+                        <h3 class="title"><i class="fas fa-building"></i> Manager</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">ID: 1</li>
+                            <li class="list-group-item">Email: <a href="mailto:johnny@fakemail.com">johnny@fmail.com</a>
+                            </li>
+                            <li class="list-group-item">Office number: 1</li>
+                        </ul>
+                    </div>
+                </div>`
 
 }
 
