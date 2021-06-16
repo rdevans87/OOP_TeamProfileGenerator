@@ -9,12 +9,12 @@ test("new Employee created", () => {
 });
 
 
-test("Set GitHub Account from constructor", () => {
-    const testValue = "GitHub"
-    const emp = new Engineer("Jimmy", 9, "https://github.com/fgithubaccount", testValue);
-    expect(emp.github).toBe(testValue);
+// test("Set GitHub Account from constructor", () => {
+//     const testValue = "GitHub"
+//     const emp = new Engineer("Jimmy", 9, "https://github.com/fgithubaccount", testValue);
+//     expect(emp.github).toBe(testValue);
 
-});
+// });
 
 
 test("Set Email from constructor", () => {

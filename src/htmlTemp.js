@@ -1,3 +1,4 @@
+
 const generateTeam = team => {
 
     const generateManager = manager => {
@@ -10,9 +11,9 @@ const generateTeam = team => {
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item" id="employeeId">${manager.getId()}</li>
-                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}>${manager.getEmail()}</a>
+                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                             </li>
-                            <li class="list-group-item" id="employeeInfo">${manager.getOfficeNumber()}</li>
+                            <li class="list-group-item">${manager.getOfficeNumber()}</li>
                         </ul>
                     </div>
                 </div>
@@ -30,9 +31,9 @@ const generateTeam = team => {
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item" id="employeeId">${engineer.getId()}</li>
-            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}>${engineer.getEmail()}</a>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo">${engineer.getGithub()}</li>
+            <li class="list-group-item" id="employeeInfo">"https://github.com/${engineer.getGithub()}"</li>
         </ul>
     </div>
 </div>
@@ -44,7 +45,6 @@ const generateTeam = team => {
 
 const generateIntern = intern => {
         return `
-
     <div class="card">
     <div class="header">
         <h2 class="employeeName"> ${intern.getName()}</h2>
@@ -53,9 +53,9 @@ const generateIntern = intern => {
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item" id="employeeId">${intern.getId()}</li>
-            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${intern.getEmail()}>${intern.getEmail()}</a>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo">${intern.getSchool()}</li>
+            <li class="list-group-item" id="employeeInfo">School: ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>
@@ -65,34 +65,33 @@ const generateIntern = intern => {
 };
 
 
-const html = [];
+// const html = [];
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
-    );
-    html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => generateEngineer(engineer))
-        .join("")
-    );
+//     html.push(teamArr
+//         .filter(employee => employee.getRole() === "Manager")
+//         .map(manager => generateManager(manager))
+//     );
+//     html.push(teamArr
+//         .filter(employee => employee.getRole() === "Engineer")
+//         .map(engineer => generateEngineer(engineer))
+//         .join("")
+//     );
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Intern")
-        .map(intern => generateIntern(intern))
-        .join("")
-    );
-
-
- return html.join("");
+//     html.push(teamArr
+//         .filter(employee => employee.getRole() === "Intern")
+//         .map(intern => generateIntern(intern))
+//         .join("")
+//     );
 
 
-}
+//  return html.join("");
 
-module.exports = team => {
+ };
+
+ module.exports = team => {
 
     return `
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
     
     <head>
@@ -118,11 +117,50 @@ module.exports = team => {
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center"></div>    
-            ${generateTeam(team)}
+            <div class="col-12 d-flex justify-content-center"></div>
+            ${generateTeam(team)}   
+            <div class="card">
+            <div class="header">
+                <h2 class="employeeName"> ${manager.getName()}</h2>
+                <h3 class="employeeRole"><i class="fas fa-building"></i>${manager.getRole()}</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item" id="employeeId">${manager.getId()}</li>
+                    <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
+                    </li>
+                    <li class="list-group-item">${manager.getOfficeNumber()}</li>
+                </ul>
             </div>
         </div>
+        <div class="card">
+    <div class="header">
+        <h2 class="employeeName"> ${engineer.getName()}</h2>
+        <h3 class="employeeRole"><i class="fas fa-laptop-code"><</i>${engineer.getRole()}</h3>
     </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item" id="employeeId">${engineer.getId()}</li>
+            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+            </li>
+            <li class="list-group-item" id="employeeInfo">"https://github.com/${engineer.getGithub()}"</li>
+        </ul>
+    </div>
+</div>
+<div class="card">
+<div class="header">
+    <h2 class="employeeName"> ${intern.getName()}</h2>
+    <h3 class="employeeRole"><i class="fas fa-user-graduate"></i>${intern.getRole()}</h3>
+</div>
+<div class="card-body">
+    <ul class="list-group">
+        <li class="list-group-item" id="employeeId">${intern.getId()}</li>
+        <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+        </li>
+        <li class="list-group-item" id="employeeInfo">School: ${intern.getSchool()}</li>
+    </ul>
+</div>
+</div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -135,6 +173,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </html>
 
         `;
+ };
 
 
-};
+
