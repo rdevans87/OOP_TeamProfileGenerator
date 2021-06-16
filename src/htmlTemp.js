@@ -13,7 +13,7 @@ const generateTeam = team => {
                             <li class="list-group-item" id="employeeId">${manager.getId()}</li>
                             <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                             </li>
-                            <li class="list-group-item">${manager.getOfficeNumber()}</li>
+                            <li class="list-group-item"> Office Number: ${manager.getOfficeNumber()}</li>
                         </ul>
                     </div>
                 </div>
@@ -29,14 +29,14 @@ const generateTeam = team => {
     <div class="card">
     <div class="header">
         <h2 class="employeeName"> ${engineer.getName()}</h2>
-        <h3 class="employeeRole"><i class="fas fa-laptop-code"><</i>${engineer.getRole()}</h3>
+        <h3 class="employeeRole"><i class="fas fa-laptop-code"></i>${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item" id="employeeId">${engineer.getId()}</li>
             <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo"> GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li></li>
+            <li class="list-group-item" id="employeeInfo"> Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li></li>
         </ul>
     </div>
 </div>
