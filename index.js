@@ -1,6 +1,6 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
-// const Employee = require("./lib/Employee");
+const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 
 const chalk = require('chalk');
@@ -20,8 +20,8 @@ const samplePath = path.join(SAMPLE_DIR, "sample.html")
 
 const render = require("./src/htmlTemp.js");
 
-let employeeArr = [];
-let teamArr = [];
+const employeeArr = [];
+const teamArr = [];
 
 console.log(chalk.yellow.bold('================================================================================================='));
 console.log(``);
@@ -150,15 +150,15 @@ function promptMenu() {
                     if (Github !== "") {
                         return true;
                     }
-                    return "Please input a valid GitHub Username..";
+                    return "Please input a valid Github Username..";
                 }
             }
 
 
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-            teamArr.push(engineer);
-            employeeArr.push(answers.engineerId);
+            employeeArr.push(engineer);
+            teamArr.push(answers.engineerId);
             createTeam();
         });
     }
@@ -204,8 +204,8 @@ function promptMenu() {
 
         ]).then(answers => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-            teamArr.push(intern);
-            employeeArr.push(answers.internId);
+            employeeArr.push(intern);
+            teamArr.push(answers.internId);
             createTeam();
         })
     }
@@ -215,7 +215,7 @@ function promptMenu() {
         if (!fs.existsSync(SAMPLE_DIR)) {
           fs.mkdirSync(SAMPLE_DIR)
         }
-        fs.writeFileSync(samplePath, render(teamArr), "utf-8");
+        fs.writeFileSync(samplePath, render(employeeArr), "utf-8");
        
       }
     

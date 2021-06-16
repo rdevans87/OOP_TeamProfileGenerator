@@ -4,23 +4,24 @@
   "description": "## Description",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "dependencies": {
     "chalk": "^4.1.1",
     "figlet": "^1.5.0",
-    "inquirer": "^8.1.1",
+    "inquirer": "^8.1.1"
+  },
+  "devDependencies": {
     "jest": "^27.0.4"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rdevans87/OOP_TeamProfileGenerator.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
