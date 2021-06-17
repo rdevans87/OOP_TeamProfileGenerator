@@ -30,7 +30,7 @@ console.log(chalk.blue.bold(figlet.textSync('                 GENERATOR')));
 console.log(``);
 console.log(`                              ` + chalk.green.bold('(E)MPLOYEE (M)ANAGEMENT (S)YSTEM'));
 console.log(``);
-console.log(chalk.yellow.bold(`================================================================================================`));;
+console.log(chalk.yellow.bold(`=================================================================================================`));;
 
 function promptMenu() {
 
@@ -40,7 +40,7 @@ function promptMenu() {
 
             {
                 type: "input",
-                name: "employeeName",
+                name: "managerName",
                 message: "What is the team manager's name?",
                 validate: function validateName(name) {
                     if (name !== "") {
@@ -51,7 +51,7 @@ function promptMenu() {
             },
             {
                 type: "input",
-                name: "employeeEmail",
+                name: "managerEmail",
                 message: "What is the team Manager's email?",
                 validate: function validateEmail(email) {
                     if (email !== "") {

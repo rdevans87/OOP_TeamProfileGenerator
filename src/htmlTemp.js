@@ -5,13 +5,13 @@ const generateTeam = team => {
         return `
                 <div class="card">
                     <div class="header">
-                        <h2 class="employeeName"> ${manager.getName()}</h2>
+                        <h2 class="managerName"> ${manager.getName()}</h2>
                         <h3 class="employeeRole"><i class="fas fa-building"></i>${manager.getRole()}</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item" id="employeeId">${manager.getId()}</li>
-                            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
+                            <li class="list-group-item" id="managerEmail">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                             </li>
                             <li class="list-group-item"> Office Number: ${manager.getOfficeNumber()}</li>
                         </ul>
@@ -34,9 +34,9 @@ const generateTeam = team => {
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item" id="employeeId">${engineer.getId()}</li>
-            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+            <li class="list-group-item" id="engineerEmail">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo"> Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li></li>
+            <li class="list-group-item" id="engineerGithub"> Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li></li>
         </ul>
     </div>
 </div>
@@ -51,15 +51,15 @@ const generateIntern = intern => {
         return `
     <div class="card">
     <div class="header">
-        <h2 class="employeeName"> ${intern.getName()}</h2>
+        <h2 class="internName"> ${intern.getName()}</h2>
         <h3 class="employeeRole"><i class="fas fa-user-graduate"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item" id="employeeId">${intern.getId()}</li>
-            <li class="list-group-item" id="employeeEmail">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+            <li class="list-group-item" id="internEmail">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
             </li>
-            <li class="list-group-item" id="employeeInfo">School: ${intern.getSchool()}</li>
+            <li class="list-group-item" id="internSchool">School: ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>

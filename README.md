@@ -1,5 +1,8 @@
 # OOP_TeamProfileGenerator
 
+<img src="./Assets/terminalscreen.png" width="550px"/>
+
+
 ## Description
 
 10 Object-Oriented Programming: Team Profile Generator
