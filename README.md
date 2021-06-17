@@ -9,9 +9,9 @@
 
 This is a `Node.js` command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. A unit test was written for every part of the code and ensure that it passes each test.
 
-Link to GitHub repository: [Team Profile Generator](/)
+Link to GitHub repository: [Team Profile Generator](https://github.com/rdevans87/OOP_TeamProfileGenerator)
 
-Link to walkthrough video: [TPG demo Video](/)
+Link to walkthrough video: [TPG demo Video](https://youtu.be/1u8Up6zbedk)
 
 
 # Table of Contents
