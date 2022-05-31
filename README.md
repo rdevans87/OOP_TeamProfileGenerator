@@ -51,7 +51,7 @@ The following image shows a mock-up of the generated HTML’s appearance and fun
 Link to walkthrough video demosonstrating the functionality of the `Team Profile Generator` and all tests passing: [Team Profile Generator Demo](https://youtu.be/1u8Up6zbedk))
 
 * The walkthrough video shows all four tests passing from the command line.
-* The walkthrough video demonstrate how a user would invoke the application from the command line.
+* The walkthrough video demonstrates how a user would invoke the application from the command line.
 * The walkthrough video demonstrates how a user would enter responses to all of the prompts in the application.
 * The walkthrough video demonstrates a generated HTML file that matches the user input.
 
